@@ -1,5 +1,9 @@
 
-const projects = document.querySelectorAll(".projects-item")
+const projects           = document.querySelectorAll(".projects-item")
+const form               = document.querySelector("#contact-form")
+const error_empty_inputs = document.querySelector("#error-empty-inputs")
+const inputs_container   = document.querySelectorAll(".input-container")
+
 
 projects.forEach(e => {
 	if(e.classList[1] == "disabled-item") return
@@ -24,9 +28,6 @@ projects.forEach(e => {
 
 })
 
-const form = document.querySelector("#contact-form")
-const error_empty_inputs = document.querySelector("#error-empty-inputs")
-
 form.addEventListener("submit", e => {
 	e.preventDefault()
 	const inputs = [e.srcElement[0], e.srcElement[1], e.srcElement[2], e.srcElement[3]]
@@ -46,8 +47,6 @@ form.addEventListener("submit", e => {
 	})
 	
 })
-
-const inputs_container = document.querySelectorAll(".input-container")
 
 inputs_container.forEach(container => {
 	const input = container.children[0]
