@@ -226,34 +226,39 @@
 			<p id="or-send-mail">Ou envie um email</p>
 
 			<form id="contact-form" action="" method="POST">
-				<div id="error-empty-inputs" class="input-error-container">
-					<div class="error-content">
-						<p class="error-text">Preencha todos os campos.</p>
+				<div id="error-empty-inputs" class="toast-container">
+					<div class="toast-content">
+						<p class="toast-text">Preencha todos os campos.</p>
+					</div>
+				</div>
+				<div id="sucess-form" class="toast-container">
+					<div class="toast-content">
+						<p class="toast-text">Email enviado com sucesso!</p>
 					</div>
 				</div>
 				<div class="side-by-side">
 					<div class="input-container">
 						<input class="input" type="text" name="name" placeholder="Seu nome" autocomplete="off">
-						<div class="input-error-container">
-							<div class="error-content error-toast-detail">
-								<p class="error-text">Somente letras permitidas.</p>
+						<div class="toast-container">
+							<div class="toast-content toast-detail">
+								<p class="toast-text">Somente letras permitidas.</p>
 							</div>
 						</div>
 					</div>
 					<div class="input-container">
 						<input class="input" type="email" name="email" placeholder="Seu email" autocomplete="off">
-						<div class="input-error-container">
-							<div class="error-content error-toast-detail">
-								<p class="error-text">Escreva um email válido.</p>
+						<div class="toast-container">
+							<div class="toast-content toast-detail">
+								<p class="toast-text">Escreva um email válido.</p>
 							</div>
 						</div>
 					</div>
 				</div>
 				<div class="input-container">
 					<input class="input" type="text" name="topic" placeholder="Assunto..." autocomplete="off">
-					<div class="input-error-container">
-						<div class="error-content error-toast-detail">
-							<p class="error-text">Só letras e números permitidos.</p>
+					<div class="toast-container">
+						<div class="toast-content toast-detail">
+							<p class="toast-text">Só letras e números permitidos.</p>
 						</div>
 					</div>
 				</div>

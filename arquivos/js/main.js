@@ -2,6 +2,7 @@
 const projects           = document.querySelectorAll(".projects-item")
 const form               = document.querySelector("#contact-form")
 const error_empty_inputs = document.querySelector("#error-empty-inputs")
+const sucess_form_toast  = document.querySelector("#sucess-form")
 const inputs_container   = document.querySelectorAll(".input-container")
 
 const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
@@ -32,78 +33,76 @@ projects.forEach(e => {
 form.addEventListener("submit", e => {
 	e.preventDefault()
 	const inputs = [e.srcElement[0], e.srcElement[1], e.srcElement[2], e.srcElement[3]]
+	const errors = []
 
 	inputs.forEach(input => {
-		if(!input.value || input.value == ' '){
+		const input_name = input.attributes.name.nodeValue
+		if(!formValidation(input_name, input)){
 			input.style.border = '1px solid red'
 			error_empty_inputs.style.display = "initial"
-
+			errors.push({
+				input: input,
+				error: "error"
+			})
 			setTimeout(() => {
-				input.style.border = "1px solid #303030"
 				error_empty_inputs.style.display = "none"
 			}, 4000)
 		}else{
-			
+			input.style.border = '1px solid #9900ff'
 		}
 	})
+
+	if(!errors.length){
+		inputs.forEach(i => {
+			i.value = ""
+			i.style.border = "1px solid #303030"
+		})
+		sucess_form_toast.style.display = "initial"
+		setTimeout(() => {
+			sucess_form_toast.style.display = "none"
+		}, 4000)
+	}
+
 })
 
 inputs_container.forEach(container => {
 	const input = container.children[0]
 	const toast = container.children[1]
+	const input_name = input.attributes.name.nodeValue
 	input.addEventListener("input", () => {
-		validateInput(input.attributes.name.nodeValue, input, toast)
+		if(formValidation(input_name, input)){
+			if(toast) toast.style.display = "none"
+			input.style.border = "1px solid #9900ff"
+		}else{
+			toast.style.display = "initial"
+			input.style.border = "1px solid red"
+		}
 	})
 
 	input.addEventListener("blur", () => {
-		if(input.attributes.name.nodeValue == "message") return
+		if(input_name == "message") return
 		toast.style.display = "none"
 	})
 })
 
-function validateInput(name, input, toast){
+function formValidation(name, input){
+	const isEmpty = !input.value || input.value == ' '
 
-	switch(name){
-		case "name":
-			if(input.value.match(/[^a-zA-Z\ ]/)){
-				toast.style.display = "initial"
-				input.style.border = "1px solid red"
-				name_input = false
-			}else{
-				toast.style.display = "none"
-				input.style.border = "1px solid #303030"
-				name_input = true
-			}
-			break
-		case "email":
-			if(!emailRegex.test(String(input.value).toLowerCase())){
-				toast.style.display = "initial"
-				input.style.border = "1px solid red"
-				email_input = false
-			}else{
-				toast.style.display = "none"
-				input.style.border = "1px solid #303030"
-				email_input = true
-			}
-			break
-		case "topic":
-			if(input.value.match(/[^a-zA-Z0-9\ ]/)){
-				toast.style.display = "initial"
-				input.style.border = "1px solid red"
-				topic_input = false
-			}else{
-				toast.style.display = "none"
-				input.style.border = "1px solid #303030"
-				email_input = true
-			}
-			break
-		case "message":
-			break
-	}
+	if(!isEmpty){
+		if(name == "name" || name == "topic"){
+			if(!input.value.match(/[^a-zA-Z0-9\ ]/)){
+				return true
+			}else false
+		}
+		if(name == "email"){
+			if(emailRegex.test(String(input.value).toLowerCase())){
+				return true
+			}else return false
+		}
+		if(name == "message"){
+			return true
+		}
+	}else return
 }
-
-
-
-
 
 
