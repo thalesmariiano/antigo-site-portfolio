@@ -520,15 +520,15 @@ form {
 	color: grey;
 }
 
-#error-empty-inputs {
+#error-form-toast {
 	left: 245px;
 }
 
-#sucess-form {
+#sucess-form-toast {
 	left: 245px;
 }
 
-#sucess-form .toast-content {
+#sucess-form-toast .toast-content {
 	background-color: green;
 	border-left: 5px solid darkgreen;
 }

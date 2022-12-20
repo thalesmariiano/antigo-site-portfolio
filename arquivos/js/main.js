@@ -1,8 +1,8 @@
 
 const projects           = document.querySelectorAll(".projects-item")
 const form               = document.querySelector("#contact-form")
-const error_empty_inputs = document.querySelector("#error-empty-inputs")
-const sucess_form_toast  = document.querySelector("#sucess-form")
+const error_form_toast   = document.querySelector("#error-form-toast")
+const sucess_form_toast  = document.querySelector("#sucess-form-toast")
 const inputs_container   = document.querySelectorAll(".input-container")
 
 const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
@@ -27,35 +27,35 @@ projects.forEach(e => {
 			}
 		})
 	})
-
 })
 
 form.addEventListener("submit", e => {
 	e.preventDefault()
-	const inputs = [e.srcElement[0], e.srcElement[1], e.srcElement[2], e.srcElement[3]]
 	const errors = []
+	const form_inputs = [e.srcElement[0], e.srcElement[1], e.srcElement[2], e.srcElement[3]]
 
-	inputs.forEach(input => {
+	form_inputs.forEach(input => {
 		const input_name = input.attributes.name.nodeValue
-		if(!formValidation(input_name, input)){
+
+		if(formValidation(input_name, input)){
+			input.style.border = '1px solid #9900ff'			
+		}else{
+			error_form_toast.style.display = "initial"
 			input.style.border = '1px solid red'
-			error_empty_inputs.style.display = "initial"
 			errors.push({
 				input: input,
 				error: "error"
 			})
 			setTimeout(() => {
-				error_empty_inputs.style.display = "none"
+				error_form_toast.style.display = "none"
 			}, 4000)
-		}else{
-			input.style.border = '1px solid #9900ff'
 		}
 	})
 
 	if(!errors.length){
-		inputs.forEach(i => {
-			i.value = ""
-			i.style.border = "1px solid #303030"
+		form_inputs.forEach(input => {
+			input.value = ""
+			input.style.border = "1px solid #303030"
 		})
 		sucess_form_toast.style.display = "initial"
 		setTimeout(() => {
@@ -69,13 +69,14 @@ inputs_container.forEach(container => {
 	const input = container.children[0]
 	const toast = container.children[1]
 	const input_name = input.attributes.name.nodeValue
+
 	input.addEventListener("input", () => {
 		if(formValidation(input_name, input)){
-			if(toast) toast.style.display = "none"
 			input.style.border = "1px solid #9900ff"
+			if(toast) toast.style.display = "none"
 		}else{
-			toast.style.display = "initial"
 			input.style.border = "1px solid red"
+			toast.style.display = "initial"
 		}
 	})
 
@@ -92,7 +93,7 @@ function formValidation(name, input){
 		if(name == "name" || name == "topic"){
 			if(!input.value.match(/[^a-zA-Z0-9\ ]/)){
 				return true
-			}else false
+			}else return false
 		}
 		if(name == "email"){
 			if(emailRegex.test(String(input.value).toLowerCase())){
@@ -102,7 +103,7 @@ function formValidation(name, input){
 		if(name == "message"){
 			return true
 		}
-	}else return
+	}else return false
 }
 
 
