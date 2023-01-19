@@ -1,10 +1,6 @@
 const advice_text = document.querySelector("#advice-text")
 const url = "https://api.adviceslip.com/advice"
 
-window.onload = () => {
-	getAdvice()
-}
-
 function getAdvice(){
 	fetch(url)
 		.then(response => response.json())
@@ -16,3 +12,4 @@ function getAdvice(){
 			console.log(`Error: ${error}`)
 		})
 }
+getAdvice()
