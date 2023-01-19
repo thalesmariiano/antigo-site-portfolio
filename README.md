@@ -13,3 +13,4 @@ estou criando algumas coisas pra esse projeto. Como o meu próprio "Scroll Trigg
 - HTML5
 - CSS3
 - Javascript
+- AdviceSlip API
