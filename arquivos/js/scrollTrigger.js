@@ -1,11 +1,15 @@
+var stopTrigger = false
 
-function scrollTrigger({element, execute, viewTrigger}){
-	const triggerPosition = document.querySelector(element)
+function scrollTrigger({selector, execute, viewTrigger}){
+	const triggerPosition = document.querySelector(selector)
 							.getBoundingClientRect()
 
 	window.addEventListener("scroll", () => {
 		if(window.scrollY > triggerPosition.top/2 && window.scrollY < triggerPosition.bottom){
-			execute()
+			if(!stopTrigger){
+				execute()
+			}
+			stopTrigger = true
 		}
 	})
 
@@ -21,16 +25,6 @@ function scrollTrigger({element, execute, viewTrigger}){
 		document.querySelector("body").appendChild(trigger)
 	}
 }
-
-scrollTrigger({
-	element: "#about-me-section",
-	execute: () => {
-		document.querySelector("[data-skill=front-end]").children[0].style.width = "90%"
-		setTimeout(() => document.querySelector("[data-skill=back-end]").children[0].style.width = "70%", 500)
-		setTimeout(() => document.querySelector("[data-skill=database]").children[0].style.width = "30%", 1000)
-	}
-})
-
 
 
 
