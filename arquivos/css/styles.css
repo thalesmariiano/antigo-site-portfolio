@@ -76,11 +76,11 @@ body {
 	align-items: center;
 	color: white;
 	padding: 10px 15px;
-	width: 120px;
+	width: 135px;
 	background-color: #7a04c9;
 	margin: 10px;
 	border-radius: 12px;
-	font: 15px 'Inter', sans-serif;
+	font: 17px 'Inter', sans-serif;
 	transition: all .2s;
 }
 
@@ -429,7 +429,6 @@ main {
 	}
 }
 
-
 .cube {
 	width: 140px;
 	height: 140px;
@@ -552,19 +551,36 @@ main {
 
 	#skill-box-container {
 		display: flex;
+		justify-content: space-between;
 		align-items: center;
+		width: 100%;
+		margin-top: 10px;
 	}
 
 	.skill-drawer {
-		margin: 10px;
+		border-right: 2px solid var(--primary-color);
+	}
+
+	.skill-drawer:nth-child(1) {
+		margin: 0px;
 	}
 
 	.skill-drawer:nth-child(2){
+		margin: 0px;
 		border-bottom-left-radius: 0px;
+	}
+
+	.cube-drawer {
+		border-right: none;
+		width: 15px;
 	}
 
 	#profile-description-container {
 		border-bottom-left-radius: 12px;
+	}
+
+	.prompt-line {
+		font-size: 13px;
 	}
 }
 

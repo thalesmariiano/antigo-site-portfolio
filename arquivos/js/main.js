@@ -151,7 +151,7 @@ const particles = Particles.init({
 
 particles.pauseAnimation()
 
-window.onload = function(){
+window.onresize = () => {
 	if(window.innerWidth < 870){
 		document.querySelectorAll(".skill-drawer").forEach(skill_box => {
 			skill_box.addEventListener("click", skill_box => {
@@ -160,6 +160,8 @@ window.onload = function(){
 			})
 		})
 	}
+	document.querySelector("body").style.overflow = "initial"
+	document.querySelector("#skill-popup-container").style.display = "none"
 }
 
 function closePopup(){
