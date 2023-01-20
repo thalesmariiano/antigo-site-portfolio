@@ -152,6 +152,10 @@ const particles = Particles.init({
 particles.pauseAnimation()
 
 window.onresize = () => {
+	mobilePopup()
+}
+
+function mobilePopup(){
 	if(window.innerWidth < 870){
 		document.querySelectorAll(".skill-drawer").forEach(skill_box => {
 			skill_box.addEventListener("click", skill_box => {
@@ -163,6 +167,7 @@ window.onresize = () => {
 	document.querySelector("body").style.overflow = "initial"
 	document.querySelector("#skill-popup-container").style.display = "none"
 }
+mobilePopup()
 
 function closePopup(){
 	document.querySelector("body").style.overflow = "initial"
