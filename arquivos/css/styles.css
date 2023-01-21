@@ -379,6 +379,21 @@ main {
 	}
 }
 
+@media only screen and (max-width: 870px){
+	.skill-drawer {
+		border-right: 2px solid var(--primary-color);
+	}
+
+	.skill-drawer:nth-child(2){
+		border-bottom-left-radius: 0px;
+	}
+
+	.cube-drawer {
+		border-right: none;
+		width: 15px;
+	}
+}
+
 .cube {
 	width: 140px;
 	height: 140px;
@@ -390,7 +405,7 @@ main {
 	align-items: center;
 }
 
-.cube img {
+.skill-logo {
 	width: 80px;
 	filter: invert(100%);
 }
@@ -408,6 +423,16 @@ main {
 	align-items: center;
 	flex-direction: column;
 	text-align: center;
+}
+
+.skill-box {
+	display: none;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+.skill-container {
+	padding: 10px;
 }
 
 #popup-container h1 {
@@ -507,22 +532,12 @@ main {
 		margin-top: 10px;
 	}
 
-	.skill-drawer {
-		border-right: 2px solid var(--primary-color);
-	}
-
 	.skill-drawer:nth-child(1) {
 		margin: 0px;
 	}
 
 	.skill-drawer:nth-child(2){
 		margin: 0px;
-		border-bottom-left-radius: 0px;
-	}
-
-	.cube-drawer {
-		border-right: none;
-		width: 15px;
 	}
 
 	#profile-description-container {

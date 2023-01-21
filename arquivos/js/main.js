@@ -156,11 +156,19 @@ window.onresize = () => {
 
 const body = document.querySelector("body")
 const skill_popup_container = document.querySelector("#skill-popup-container")
+const skill = document.querySelectorAll(".skill-box")
 
 function openPopup(){
 	if(window.innerWidth < 870){
 		document.querySelectorAll(".skill-drawer").forEach(skill_box => {
-			skill_box.addEventListener("click", skill_box => {
+			skill_box.addEventListener("click", () => {
+				if(skill_box.dataset.stack == "front"){
+					skill[0].style.display = "flex"
+					skill[1].style.display = "none"
+				}else if(skill_box.dataset.stack == "back"){
+					skill[0].style.display = "none"
+					skill[1].style.display = "flex"
+				}
 				body.style.overflow = "hidden"
 				skill_popup_container.style.display = "flex"
 			})

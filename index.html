@@ -125,7 +125,7 @@
 
 					<div id="sub-profile-container">
 						<div id="skill-box-container">
-							<div class="skill-drawer">
+							<div class="skill-drawer" data-stack="front">
 								<div class="drawer-banner">
 									<i class="fa-solid fa-code fa-xl"></i>
 									<p>Front-End</p>
@@ -133,14 +133,14 @@
 
 								<div class="cube-drawer">
 									<div class="cube"></div>
-									<div class="cube"><img src="arquivos/imgs/html5_icon.svg"></div>
-									<div class="cube"><img src="arquivos/imgs/css3_icon.svg"></div>
-									<div class="cube"><img src="arquivos/imgs/js_icon.svg"></div>
+									<div class="cube"><img class="skill-logo" src="arquivos/imgs/html5_icon.svg"></div>
+									<div class="cube"><img class="skill-logo" src="arquivos/imgs/css3_icon.svg"></div>
+									<div class="cube"><img class="skill-logo" src="arquivos/imgs/js_icon.svg"></div>
 									<div class="cube">...</div>
 								</div>
 							</div>
 
-							<div class="skill-drawer">
+							<div class="skill-drawer" data-stack="back">
 								<div class="drawer-banner">
 									<i class="fa-solid fa-server fa-xl"></i>
 									<p>Back-End</p>
@@ -148,9 +148,9 @@
 
 								<div class="cube-drawer">
 									<div class="cube"></div>
-									<div class="cube"><img src="arquivos/imgs/laravel_icon.svg"></div>
-									<div class="cube"><img src="arquivos/imgs/php_icon.svg"></div>
-									<div class="cube"><img src="arquivos/imgs/nodejs_icon.svg"></div>
+									<div class="cube"><img class="skill-logo" src="arquivos/imgs/laravel_icon.svg"></div>
+									<div class="cube"><img class="skill-logo" src="arquivos/imgs/php_icon.svg"></div>
+									<div class="cube"><img class="skill-logo" src="arquivos/imgs/nodejs_icon.svg"></div>
 									<div class="cube">...</div>
 								</div>
 							</div>
@@ -207,7 +207,16 @@
 
 					<div id="skill-popup-container">
 						<div id="popup-container">
-							<h1>Ainda não funciona em telas menores que <strong>870px.</strong></h1>
+							<div class="skill-box" id="front-box">
+								<div class="skill-container"><img class="skill-logo" src="arquivos/imgs/html5_icon.svg"></div>
+								<div class="skill-container"><img class="skill-logo" src="arquivos/imgs/css3_icon.svg"></div>
+								<div class="skill-container"><img class="skill-logo" src="arquivos/imgs/js_icon.svg"></div>
+							</div>
+							<div class="skill-box" id="back-box">
+								<div class="skill-container"><img class="skill-logo" src="arquivos/imgs/laravel_icon.svg"></div>
+								<div class="skill-container"><img class="skill-logo" src="arquivos/imgs/php_icon.svg"></div>
+								<div class="skill-container"><img class="skill-logo" src="arquivos/imgs/nodejs_icon.svg"></div>
+							</div>
 							<button id="close-popup-button" onClick="closePopup()">Fechar</button>
 						</div>
 					</div>
