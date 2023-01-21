@@ -8,12 +8,12 @@ const inputs_container   = document.querySelectorAll(".input-container")
 const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
 projects_array.forEach(project => {
-	if(project.classList[1] == "disabled-item") return
+	if(project.dataset.enable == "false") return
 
 	project.addEventListener("mouseover", () => {
 		project.classList.add("selected")
 		projects_array.forEach(item => {
-			if(!item.classList[1] || item.classList[1] !== "selected"){
+			if(item.classList[1] !== "selected"){
 				item.style.filter = "blur(4px)"
 			}
 		})
@@ -22,7 +22,7 @@ projects_array.forEach(project => {
 	project.addEventListener("mouseout", () => {
 		project.classList.remove("selected")
 		projects_array.forEach(item => {
-			if(!item.classList[1] || item.classList[1] !== "selected"){
+			if(item.classList[1] !== "selected"){
 				item.style.filter = "blur(0px)"
 			}
 		})
@@ -32,9 +32,9 @@ projects_array.forEach(project => {
 form.addEventListener("submit", e => {
 	e.preventDefault()
 	const errors = []
-	const form_inputs = [e.srcElement[0], e.srcElement[1], e.srcElement[2], e.srcElement[3]]
+	const inputs_array = [e.srcElement[0], e.srcElement[1], e.srcElement[2], e.srcElement[3]]
 
-	form_inputs.forEach(input => {
+	inputs_array.forEach(input => {
 		const input_name = input.attributes.name.nodeValue
 
 		if(formValidation(input_name, input)){
@@ -54,7 +54,7 @@ form.addEventListener("submit", e => {
 	})
 
 	if(!errors.length){
-		form_inputs.forEach(input => {
+		inputs_array.forEach(input => {
 			input.value = ""
 			input.style.border = "1px solid #555555"
 		})
