@@ -9,7 +9,7 @@ function getAdvice(){
 				advice_text.innerHTML = `"#${slip.id} | ${slip.advice}"`
 			})
 		.catch(error => {
-			console.log(`Error: ${error}`)
+			console.log(`Advice Error: ${error}`)
 		})
 }
 getAdvice()

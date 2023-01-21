@@ -118,11 +118,11 @@ scrollTrigger({
 			prompt_number++
 		}, 400)
 		
-		particles.resumeAnimation()
+		about_particles.resumeAnimation()
 	}
 })
 
-const particles = Particles.init({
+const about_particles = Particles.init({
 	selector: "#particles-bg",
 	maxParticles: 250,
 	color: "#9900ff",
@@ -148,28 +148,28 @@ const particles = Particles.init({
 		}
   	]
 })
-
-particles.pauseAnimation()
+about_particles.pauseAnimation()
 
 window.onresize = () => {
-	mobilePopup()
+	closePopup()
 }
 
-function mobilePopup(){
+const body = document.querySelector("body")
+const skill_popup_container = document.querySelector("#skill-popup-container")
+
+function openPopup(){
 	if(window.innerWidth < 870){
 		document.querySelectorAll(".skill-drawer").forEach(skill_box => {
 			skill_box.addEventListener("click", skill_box => {
-				document.querySelector("body").style.overflow = "hidden"
-				document.querySelector("#skill-popup-container").style.display = "flex"
+				body.style.overflow = "hidden"
+				skill_popup_container.style.display = "flex"
 			})
 		})
 	}
-	document.querySelector("body").style.overflow = "initial"
-	document.querySelector("#skill-popup-container").style.display = "none"
 }
-mobilePopup()
+openPopup()
 
 function closePopup(){
-	document.querySelector("body").style.overflow = "initial"
-	document.querySelector("#skill-popup-container").style.display = "none"
+	body.style.overflow = "initial"
+	skill_popup_container.style.display = "none"
 }
