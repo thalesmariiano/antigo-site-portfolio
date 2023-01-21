@@ -228,65 +228,6 @@ main {
 	z-index: 999;
 }
 
-#logo-subtitle {
-	font: 1.5rem "madeTommyBold", sans-serif;
-	color: white;
-	position: relative;
-	bottom: 10px;
-}
-
-#logo-subtitle::before {
-	content: " ";
-	background-color: white;
-	width: calc(100% * 1.8);
-	height: 3px;
-	border-radius: 12px;
-	position: absolute;
-	top: -4px;
-	left: -38%;
-}
-
-#logo-subtitle::after {
-	content: " ";
-	background-color: white;
-	width: calc(100% * 1.8);
-	height: 3px;
-	border-radius: 12px;
-	position: absolute;
-	bottom: -6px;
-	left: -38%;
-}
-
-@media only screen and (max-width: 956px){
-	#logo-subtitle::before {
-		content: " ";
-		background-color: white;
-		width: 100%;
-		height: 3px;
-		border-radius: 12px;
-		position: absolute;
-		top: -4px;
-		left: 0px;
-	}
-
-	#logo-subtitle::after {
-		content: " ";
-		background-color: white;
-		width: 100%;
-		height: 3px;
-		border-radius: 12px;
-		position: absolute;
-		bottom: -6px;
-		left: 0px;
-	}
-}
-
-@media only screen and (max-width: 400px){
-	#logo-subtitle {
-		font-size: 1rem;
-	}
-}
-
 #advice-container {
 	width: 45%;
 	min-width: 322px;
