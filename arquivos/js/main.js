@@ -102,12 +102,12 @@ function formValidation(name, input){
 	}
 }
 
-var prompt_number = 0
-const prompt_line = document.querySelectorAll(".prompt-line")
-
 scrollTrigger({
 	selector: "#about-me-section",
 	execute: () => {
+		var prompt_number = 0
+		const prompt_line = document.querySelectorAll(".prompt-line")
+
 
 		setInterval(() => {
 			if(prompt_number >= prompt_line.length){
@@ -184,3 +184,17 @@ function closePopup(){
 	body.style.overflow = "initial"
 	stack_popup_container.style.display = "none"
 }
+
+const hamburger_button = document.querySelector("#hamburger-button")
+
+hamburger_button.addEventListener("click", () => {
+	if(hamburger_button.dataset.state == "close"){
+		hamburger_button.classList.add("hamburger-close")
+		hamburger_button.dataset.state = "open"
+
+	}else if(hamburger_button.dataset.state == "open"){
+		hamburger_button.classList.remove("hamburger-close")	
+		hamburger_button.dataset.state = "close"	
+
+	}
+})
