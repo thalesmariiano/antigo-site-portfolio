@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ContactController;
+use App\Http\Controllers\PortfolioController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,4 +13,11 @@ use App\Http\Controllers\ContactController;
 |
 */
 
-Route::resource('/', ContactController::class);
+// Route::get('/', function() {
+//     return view('index');
+// });
+
+Route::get('/', [PortfolioController::class, 'index']);
+Route::post('/', [PortfolioController::class, 'store']);
+
+// Route::resource('/', ContactController::class);
