@@ -1,0 +1,47 @@
+@charset "UTF-8";
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	background-color: #252525;
+	color: white;
+}
+
+h1 {
+	font: bold 2rem 'Arial', sans-serif;
+	color: white;
+	margin: 2rem;
+}
+
+input {
+	margin: 5px 0;
+	padding: 8px 10px;
+	width: 400px;
+}
+
+textarea {
+	width: 400px;
+	padding: 8px 10px;
+	margin: 5px 0;
+	height: 200px;
+	font-family: 'Arial', sans-serif;
+}
+
+button {
+	padding: 5px 20px;
+	font: bold 15px 'Arial', sans-serif;
+	cursor: pointer;
+}
+
+
+
+

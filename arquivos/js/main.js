@@ -198,3 +198,25 @@ hamburger_button.addEventListener("click", () => {
 
 	}
 })
+
+function getCurrentAge(){
+	const date = new Date()
+	const currentYear = date.getFullYear()
+	const yearOfBirth = 2003
+
+	if(date.getMonth() == 6){
+		return currentYear - yearOfBirth
+	}else{
+		return currentYear - yearOfBirth - 1
+	}
+}
+
+const idade = document.querySelector("#idade-text")
+idade.innerText = getCurrentAge()
+
+
+
+
+
+
+
