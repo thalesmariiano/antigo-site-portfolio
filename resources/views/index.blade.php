@@ -4,9 +4,9 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="shortcut icon" href="arquivos/imgs/logo_icon.png" type="image/x-icon">
-	<link rel="icon" href="arquivos/imgs/logo_icon.png" type="image/x-icon">
+	<link rel="icon" href="/arquivos/imgs/logo_icon.png" type="image/x-icon">
 	
-	<link rel="stylesheet" type="text/css" href="./arquivos/css/styles.css">
+	<link rel="stylesheet" type="text/css" href="/arquivos/css/styles.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.2/particles.min.js"></script>
@@ -352,8 +352,25 @@
 					</div>
 				</div>
 
-				<form id="contact-form" action="" method="POST">
-					
+				@if(count($errors) > 0)
+					<p><strong>Preencha todos os campos corretamente!</strong></p>
+					<ul>
+						@foreach($errors->all() as $error)
+							<li>{{ $error }}</li>
+						@endforeach
+					</ul>
+				@endif
+
+				@if($message = Session::get('sucess'))
+					<p><strong>Obrigado!</strong> {{ $message }}!</p>
+				@endif
+
+				@if($message = Session::get('error'))
+					<p><strong>OOOOPPPPSSS!</strong> {{ $message }}!</p>
+				@endif
+
+				<form id="contact-form" action="{{ url('/') }}" method="POST">
+					@csrf
 					<div class="side-by-side">
 						<div class="input-container">
 							<input class="input" type="text" name="name" placeholder="Seu nome" autocomplete="off">
@@ -399,7 +416,7 @@
 		</div>
 	</footer>
 
-	<script src="arquivos/js/scrollTrigger.js"></script>
-	<script src="arquivos/js/main.js"></script>
+	<script src="/arquivos/js/scrollTrigger.js"></script>
+	<script src="/arquivos/js/main.js"></script>
 </body>
 </html>

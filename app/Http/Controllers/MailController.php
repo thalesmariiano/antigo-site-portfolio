@@ -9,30 +9,29 @@ use App\Mail\SendMail;
 class MailController extends Controller
 {
 
-    private $nome;
+    private $name;
     private $email;
-    private $assunto;
-    private $mensagem;
+    private $topic;
+    private $message;
 
     public function __construct(Request $request){
-        $this->nome = $request->nome;
+        $this->name = $request->name;
         $this->email = $request->email;
-        $this->assunto = $request->assunto;
-        $this->mensagem = $request->mensagem;
+        $this->topic = $request->topic;
+        $this->message = $request->message;
     }
 
     public function sendMail(){
 
-        $a = 10/0;
-
         $data = array(
-            'nome' => $this->nome,
+            'name' => $this->name,
             'email' => $this->email,
-            'assunto' => $this->assunto,
-            'mensagem' => $this->mensagem
+            'topic' => $this->topic,
+            'message' => $this->message
         );
 
         Mail::to( config('mail.from.address') )
             ->send( new SendMail($data) );
+        
     }
 }

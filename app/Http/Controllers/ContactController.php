@@ -38,10 +38,10 @@ class ContactController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nome' => 'required',
+            'name' => 'required',
             'email' => 'email|required',
-            'assunto' => 'required',
-            'mensagem' => 'required'
+            'topic' => 'required',
+            'message' => 'required'
         ]);
 
         $contato = new MailController($request);
@@ -54,20 +54,7 @@ class ContactController extends Controller
             return back()
                     ->with('error', "Ocorreu um erro inesperado: {$error->getMessage()}");
         }
-       
-
-        // $data = array(
-        //     'nome' => $request->nome,
-        //     'email' => $request->email,
-        //     'assunto' => $request->assunto,
-        //     'mensagem' => $request->mensagem
-        // );
-
-        // Mail::to( config('mail.from.address') )
-        //     ->send( new SendMail($data) );
-
-        // return back()
-        //             ->with('sucess', "Email enviado com sucesso!");
+        
     }
 
     /**
