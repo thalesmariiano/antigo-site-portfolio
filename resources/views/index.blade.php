@@ -353,23 +353,6 @@
 					</div>
 				</div>
 
-				@if(count($errors) > 0)
-					<p><strong>Preencha todos os campos corretamente!</strong></p>
-					<ul>
-						@foreach($errors->all() as $error)
-							<li>{{ $error }}</li>
-						@endforeach
-					</ul>
-				@endif
-
-				@if($message = Session::get('sucess'))
-					<p><strong>Obrigado!</strong> {{ $message }}!</p>
-				@endif
-
-				@if($message = Session::get('error'))
-					<p><strong>OOOOPPPPSSS!</strong> {{ $message }}!</p>
-				@endif
-
 				<form id="contact-form">
 					@csrf
 					<div class="side-by-side">
@@ -419,8 +402,9 @@
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 
-	<script src="/arquivos/js/form-ajax.js"></script>
 	<script src="/arquivos/js/scrollTrigger.js"></script>
 	<script src="/arquivos/js/main.js"></script>
+	<script src="/arquivos/js/form-ajax.js"></script>
+	
 </body>
 </html>

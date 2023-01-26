@@ -31,7 +31,6 @@ projects_array.forEach(project => {
 
 // form.addEventListener("submit", e => {
 // 	e.preventDefault()
-// 	const errors = []
 // 	const inputs_array = [e.srcElement[0], e.srcElement[1], e.srcElement[2], e.srcElement[3]]
 
 // 	inputs_array.forEach(input => {
@@ -53,16 +52,16 @@ projects_array.forEach(project => {
 // 		}
 // 	})
 
-// 	if(!errors.length){
-// 		inputs_array.forEach(input => {
-// 			input.value = ""
-// 			input.style.border = "1px solid #555555"
-// 		})
-// 		sucess_form_toast.style.display = "initial"
-// 		setTimeout(() => {
-// 			sucess_form_toast.style.display = "none"
-// 		}, 4000)
-// 	}
+// 	// if(!errors.length){
+// 	// 	inputs_array.forEach(input => {
+// 	// 		input.value = ""
+// 	// 		input.style.border = "1px solid #555555"
+// 	// 	})
+// 	// 	sucess_form_toast.style.display = "initial"
+// 	// 	setTimeout(() => {
+// 	// 		sucess_form_toast.style.display = "none"
+// 	// 	}, 4000)
+// 	// }
 
 // })
 

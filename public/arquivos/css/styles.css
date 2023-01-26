@@ -754,7 +754,6 @@ form {
 	background-color: #353535;
 	box-shadow: inset 0px 0px 8px rgba(0, 0, 0, .6);
 	color: rgba(180, 180, 180, 1);
-	outline: none;
 	transition: all .2s;
 }
 
