@@ -13,11 +13,5 @@ use App\Http\Controllers\PortfolioController;
 |
 */
 
-// Route::get('/', function() {
-//     return view('index');
-// });
-
 Route::get('/', [PortfolioController::class, 'index']);
-Route::post('/', [PortfolioController::class, 'store']);
-
-// Route::resource('/', ContactController::class);
+Route::post('/sendmail', [PortfolioController::class, 'store']);

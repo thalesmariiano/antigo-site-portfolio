@@ -3,6 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="csrf-token" content="{{ csrf_token() }}">
 	<link rel="shortcut icon" href="arquivos/imgs/logo_icon.png" type="image/x-icon">
 	<link rel="icon" href="/arquivos/imgs/logo_icon.png" type="image/x-icon">
 	
@@ -369,7 +370,7 @@
 					<p><strong>OOOOPPPPSSS!</strong> {{ $message }}!</p>
 				@endif
 
-				<form id="contact-form" action="{{ url('/') }}" method="POST">
+				<form id="contact-form">
 					@csrf
 					<div class="side-by-side">
 						<div class="input-container">
@@ -416,6 +417,9 @@
 		</div>
 	</footer>
 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+	<script src="/arquivos/js/form-ajax.js"></script>
 	<script src="/arquivos/js/scrollTrigger.js"></script>
 	<script src="/arquivos/js/main.js"></script>
 </body>

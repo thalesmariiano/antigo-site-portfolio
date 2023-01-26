@@ -22,11 +22,11 @@ class PortfolioController extends Controller
 
         try{
             $contato->sendMail();
-            return back()
-                    ->with('sucess', "Email enviado com sucesso!");
+            $msg = array('sucess' => "Email enviado com sucesso!");
+            return response()->json(json_encode($msg), 200);
         }catch(\Exception $error){
-            return back()
-                    ->with('error', "Ocorreu um erro inesperado: {$error->getMessage()}");
+            $msg = array('error' => "Ocorreu um erro inesperado: {$error->getMessage()}");
+            return response()->json(json_encode($msg), 200);
         }
     }
 }
