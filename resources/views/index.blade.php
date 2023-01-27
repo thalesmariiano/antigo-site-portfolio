@@ -339,18 +339,8 @@
 					</a>
 				</div>
 
-				<p id="or-send-mail">Ou envie um email</p>
-				<div id="form-msg-feedback">
-					<div id="error-form-toast" class="toast-container form-toast">
-						<div class="toast-content">
-							<p class="toast-text">Preencha todos os campos.</p>
-						</div>
-					</div>
-					<div id="sucess-form-toast" class="toast-container form-toast">
-						<div class="toast-content">
-							<p class="toast-text">Email enviado com sucesso!</p>
-						</div>
-					</div>
+				<div id="form-feedback-container">
+					<p id="or-send-mail">Ou envie um email</p>
 				</div>
 
 				<form id="contact-form">
@@ -359,7 +349,7 @@
 						<div class="input-container">
 							<input class="input" type="text" name="name" placeholder="Seu nome" autocomplete="off">
 							<div class="toast-container">
-								<div class="toast-content toast-detail">
+								<div class="toast-content toast-detail none">
 									<p class="toast-text">Somente letras permitidas.</p>
 								</div>
 							</div>
@@ -367,7 +357,7 @@
 						<div class="input-container">
 							<input class="input" type="email" name="email" placeholder="Seu email" autocomplete="off">
 							<div class="toast-container">
-								<div class="toast-content toast-detail">
+								<div class="toast-content toast-detail none">
 									<p class="toast-text">Escreva um email válido.</p>
 								</div>
 							</div>
@@ -376,7 +366,7 @@
 					<div class="input-container">
 						<input class="input" type="text" name="topic" placeholder="Assunto..." autocomplete="off">
 						<div class="toast-container">
-							<div class="toast-content toast-detail">
+							<div class="toast-content toast-detail none">
 								<p class="toast-text">Só letras e números permitidos.</p>
 							</div>
 						</div>

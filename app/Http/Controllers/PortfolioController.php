@@ -21,8 +21,6 @@ class PortfolioController extends Controller
         $contato = new MailController($request);
 
         try{
-            $a = 10/0;
-
             $contato->sendMail();
             $msg = array('sucess' => "Email enviado com sucesso!");
             return response()->json(json_encode($msg), 200);

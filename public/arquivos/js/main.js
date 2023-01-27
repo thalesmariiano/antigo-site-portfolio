@@ -4,6 +4,7 @@ const form               = document.querySelector("#contact-form")
 const error_form_toast   = document.querySelector("#error-form-toast")
 const sucess_form_toast  = document.querySelector("#sucess-form-toast")
 const inputs_container   = document.querySelectorAll(".input-container")
+const body = document.querySelector("body")
 
 const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
@@ -153,7 +154,6 @@ window.onresize = () => {
 	closePopup()
 }
 
-const body = document.querySelector("body")
 const stack_popup_container = document.querySelector("#stack-popup-container")
 const stack = document.querySelectorAll(".stack-container")
 

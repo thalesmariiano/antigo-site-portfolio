@@ -2,6 +2,31 @@
 $("#contact-form").submit(e => {
 	e.preventDefault()
 
+	if(!verifyInputs())
+	{
+		$.ajaxSetup({
+			headers: {
+				'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+			}
+		});
+
+		$.ajax(
+		{
+			url: "/sendmail",
+			type: "post",
+			dataType: "json",
+			data: $("#contact-form").serialize(),
+			beforeSend: () => {
+				createtoast("sending-toast", "Enviando email, por favor aguarde...")
+			}
+		})
+		.done(response => {
+			getResponse(JSON.parse(response))
+		})
+	}
+})
+
+function verifyInputs(){
 	const empty_inputs = []
 
 	inputs_container.forEach(container => {
@@ -10,13 +35,12 @@ $("#contact-form").submit(e => {
 
 		if(!input.value || input.value == " "){
 			input.style.border = "1px solid red"
-			error_form_toast.style.display = "initial"
+			createtoast("error-toast", "Preencha todos os campos.")
 			empty_inputs.push(input)
 
 			setTimeout(() => {
 				input.style.border = "1px solid #555555"
-				error_form_toast.style.display = "none"	
-			}, 3000)
+			}, 4000)
 		}else{
 			input.style.border = "1px solid #9900ff"
 		}
@@ -28,35 +52,49 @@ $("#contact-form").submit(e => {
 		})
 	})
 
-	if(!empty_inputs.length){
-		$.ajaxSetup({
-			headers: {
-				'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-			}
-		});
+	return empty_inputs.length
+}
 
-		$.ajax({
-			url: "/sendmail",
-			type: "post",
-			dataType: "json",
-			data: $("#contact-form").serialize()
-		}).done(response => {
-			getResponse(JSON.parse(response))
+function getResponse(response){
+	if(response){
+		if(response.sucess){
+			createtoast("sucess-toast", response.sucess)
 
 			inputs_container.forEach(container => {
 				container.children[0].value = ""
 				container.children[0].style.border = "1px solid #555555"
 			})
-		})
-	}
-
-})
-
-function getResponse(response){
-	if(response){
-		if(response.sucess){
-			sucess_form_toast.style.display = "initial"
-			console.log(response)
+		}else if(response.error){
+			createtoast("error-text", response.error)
 		}
 	}
 }
+
+function createtoast(type, text){
+	const feedback_container = document.querySelector("#form-feedback-container")
+	const toast_container = document.createElement("div")
+	const toast_content  = document.createElement("div")
+	const toast_text = document.createElement("p")
+
+	toast_container.classList.add("toast-container", "form-toast", `${type}`)
+	toast_content.classList.add("toast-content")
+	toast_text.classList.add("toast-text")
+
+	toast_text.textContent = text
+
+	toast_container.appendChild(toast_content)
+	toast_content.appendChild(toast_text)
+
+	feedback_container.innerHTML = ""
+	feedback_container.appendChild(toast_container)
+}
+
+
+
+
+
+
+
+
+
+
