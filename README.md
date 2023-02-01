@@ -1,3 +1,14 @@
+# Repositorio pausado.
+### Motivo: Procurando hospedagem para o back-end do site. Por enquanto só o front-end está disponivel (e no momento é o que irei atualizar)
+
+*
+*
+*
+*
+*
+*
+
+
 # site-portfolio
 
 Código fonte do meu site portfolio em desenvolvimento.
