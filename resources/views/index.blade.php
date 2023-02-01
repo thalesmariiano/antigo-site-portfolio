@@ -333,7 +333,7 @@
 						<i class="fa-brands fa-twitter"></i>
 						Twitter
 					</a>
-					<a class="social-item default-button" href="#">
+					<a class="social-item default-button" href="https://linkedin.com/in/thalesmariiano">
 						<i class="fa-brands fa-linkedin-in"></i>
 						LinkedIn
 					</a>
