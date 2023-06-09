@@ -1,14 +1,13 @@
-# Repositorio pausado.
-### Motivo: Procurando hospedagem para o back-end do site. Por enquanto só o front-end está disponivel (e no momento é o que irei atualizar)
+# Descontinuado (Novo site está sendo feito)
+- Novo repositório: https://github.com/thalesmariiano/portifolio-thales-developer
+
+
 
 *
 *
 *
 *
 *
-*
-
-
 # site-portfolio
 
 Código fonte do meu site portfolio em desenvolvimento.
